@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 2b7b835284f2bef4d963c4ac09e4c812
-timeCreated: 1472488499
+guid: f507bf67eecf5b3469eae023853f91b8
+timeCreated: 1472508656
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: back
     100002: bottom
-    100004: //RootNode
-    100006: explosion
+    100004: explosion
+    100006: //RootNode
     100008: front
     100010: left
     100012: module
@@ -22,8 +22,8 @@ ModelImporter:
     100028: top
     400000: back
     400002: bottom
-    400004: //RootNode
-    400006: explosion
+    400004: explosion
+    400006: //RootNode
     400008: front
     400010: left
     400012: module
@@ -69,10 +69,9 @@ ModelImporter:
     4300018: part4
     4300020: part5
     7400000: idle
-    7400002: idle
-    7400004: explode
-    7400006: explodedIdle
-    7400008: explodeReverse
+    7400002: explode
+    7400004: explodedIdle
+    7400006: explodeReverse
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -222,7 +221,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
