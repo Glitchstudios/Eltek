@@ -179,19 +179,13 @@ public class OVRPlayerController : MonoBehaviour
 			InitialPose = null;
 		}
 
-#if UNITY_EDITOR
-        if (Input.GetMouseButtonUp(0))
+
+        if (Input.GetMouseButtonUp(0)|| OVRInput.Get(OVRInput.Button.Any))
         {
             EventManager.TriggerTapAction();
         }
-#endif
-#if UNITY_ANDROID
 
-        if (OVRInput.Get(OVRInput.Button.Any))
-	    {
-	        EventManager.TriggerTapAction();
-	    }
-#endif
+
         UpdateMovement();
 
 		Vector3 moveDirection = Vector3.zero;
