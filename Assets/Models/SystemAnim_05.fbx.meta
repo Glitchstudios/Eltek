@@ -1,30 +1,22 @@
 fileFormatVersion: 2
-guid: d4024ada5a48deb4ea96cecf074b1f6c
-timeCreated: 1472687752
+guid: ea7744cc9b50a33478a2b9113cd71ebc
+timeCreated: 1472746529
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: ModuleTranslate
-    100002: polySurface1
-    100004: system
-    100006: //RootNode
-    100008: SystemGRP
-    100010: transform1
-    100012: WAreHouse
+    100002: system
+    100004: //RootNode
     400000: ModuleTranslate
-    400002: polySurface1
-    400004: system
-    400006: //RootNode
-    400008: SystemGRP
-    400010: transform1
-    400012: WAreHouse
+    400002: system
+    400004: //RootNode
     2300000: system
     3300000: system
     4300000: system
-    7400000: moduleInidle
+    7400000: idle
     7400002: takeModuleOut
-    7400004: moduleOutIdle
+    7400004: OutIdle
     7400006: takeModuleIn
     9500000: //RootNode
   materials:
@@ -49,10 +41,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: moduleInidle
+      name: idle
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 2
+      lastFrame: 5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -75,17 +67,9 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: SystemGRP
+      - path: ModuleTranslate
         weight: 1
-      - path: SystemGRP/ModuleTranslate
-        weight: 1
-      - path: SystemGRP/system
-        weight: 1
-      - path: WAreHouse
-        weight: 1
-      - path: WAreHouse/polySurface1
-        weight: 1
-      - path: WAreHouse/polySurface1/transform1
+      - path: system
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -93,8 +77,8 @@ ModelImporter:
     - serializedVersion: 16
       name: takeModuleOut
       takeName: Take 001
-      firstFrame: 1
-      lastFrame: 70
+      firstFrame: 6
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -117,33 +101,25 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: SystemGRP
+      - path: ModuleTranslate
         weight: 1
-      - path: SystemGRP/ModuleTranslate
-        weight: 1
-      - path: SystemGRP/system
-        weight: 1
-      - path: WAreHouse
-        weight: 1
-      - path: WAreHouse/polySurface1
-        weight: 1
-      - path: WAreHouse/polySurface1/transform1
+      - path: system
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: moduleOutIdle
+      name: OutIdle
       takeName: Take 001
-      firstFrame: 274
-      lastFrame: 275
+      firstFrame: 62
+      lastFrame: 63
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -159,17 +135,9 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: SystemGRP
+      - path: ModuleTranslate
         weight: 1
-      - path: SystemGRP/ModuleTranslate
-        weight: 1
-      - path: SystemGRP/system
-        weight: 1
-      - path: WAreHouse
-        weight: 1
-      - path: WAreHouse/polySurface1
-        weight: 1
-      - path: WAreHouse/polySurface1/transform1
+      - path: system
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -177,8 +145,8 @@ ModelImporter:
     - serializedVersion: 16
       name: takeModuleIn
       takeName: Take 001
-      firstFrame: 276
-      lastFrame: 315
+      firstFrame: 65
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -201,17 +169,9 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: SystemGRP
+      - path: ModuleTranslate
         weight: 1
-      - path: SystemGRP/ModuleTranslate
-        weight: 1
-      - path: SystemGRP/system
-        weight: 1
-      - path: WAreHouse
-        weight: 1
-      - path: WAreHouse/polySurface1
-        weight: 1
-      - path: WAreHouse/polySurface1/transform1
+      - path: system
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}

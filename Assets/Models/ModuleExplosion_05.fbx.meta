@@ -1,60 +1,52 @@
 fileFormatVersion: 2
-guid: 768105a48ffe3604db88d4f42882e418
-timeCreated: 1472688552
+guid: b722070c730b11b4fa4476abde3a5317
+timeCreated: 1472743691
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part167
-    100002: asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part170
-    100004: asdad_polySurface27
-    100006: asdad_polySurface28
-    100008: asdad_POWERTHINGY
-    100010: bottom
-    100012: Explosion
-    100014: extra_parts_pCube15
-    100016: extra_parts_pCube2
-    100018: extra_parts_pCube5
-    100020: extra_parts_pCube6
-    100022: extra_parts_pCube7
-    100024: front1
-    100026: group8
-    100028: left
-    100030: Module
-    100032: Module_RotateGRP
-    100034: //RootNode
-    100036: polySurface43
-    100038: right
-    100040: top1
-    100042: transform6
-    100044: transform7
-    100046: group9
-    100048: polySurface44
-    400000: asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part167
-    400002: asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part170
-    400004: asdad_polySurface27
-    400006: asdad_polySurface28
-    400008: asdad_POWERTHINGY
-    400010: bottom
-    400012: Explosion
-    400014: extra_parts_pCube15
-    400016: extra_parts_pCube2
-    400018: extra_parts_pCube5
-    400020: extra_parts_pCube6
-    400022: extra_parts_pCube7
-    400024: front1
-    400026: group8
-    400028: left
-    400030: Module
-    400032: Module_RotateGRP
-    400034: //RootNode
-    400036: polySurface43
-    400038: right
-    400040: top1
-    400042: transform6
-    400044: transform7
-    400046: group9
-    400048: polySurface44
+    100000: asdad_polySurface27
+    100002: asdad_polySurface28
+    100004: bottom
+    100006: Explosion
+    100008: extra_parts_pCube15
+    100010: extra_parts_pCube2
+    100012: extra_parts_pCube5
+    100014: extra_parts_pCube6
+    100016: extra_parts_pCube7
+    100018: front1
+    100020: group9
+    100022: left
+    100024: Module
+    100026: Module_RotateGRP
+    100028: //RootNode
+    100030: polySurface43
+    100032: polySurface45
+    100034: polySurface46
+    100036: right
+    100038: Top_GRP
+    100040: transform9
+    400000: asdad_polySurface27
+    400002: asdad_polySurface28
+    400004: bottom
+    400006: Explosion
+    400008: extra_parts_pCube15
+    400010: extra_parts_pCube2
+    400012: extra_parts_pCube5
+    400014: extra_parts_pCube6
+    400016: extra_parts_pCube7
+    400018: front1
+    400020: group9
+    400022: left
+    400024: Module
+    400026: Module_RotateGRP
+    400028: //RootNode
+    400030: polySurface43
+    400032: polySurface45
+    400034: polySurface46
+    400036: right
+    400038: Top_GRP
+    400040: transform9
     2300000: asdad_polySurface27
     2300002: asdad_polySurface28
     2300004: bottom
@@ -66,9 +58,8 @@ ModelImporter:
     2300016: front1
     2300018: left
     2300020: polySurface43
-    2300022: right
-    2300024: top1
-    2300026: polySurface44
+    2300022: polySurface45
+    2300024: right
     3300000: asdad_polySurface27
     3300002: asdad_polySurface28
     3300004: bottom
@@ -80,26 +71,24 @@ ModelImporter:
     3300016: front1
     3300018: left
     3300020: polySurface43
-    3300022: right
-    3300024: top1
-    3300026: polySurface44
+    3300022: polySurface45
+    3300024: right
     4300000: bottom
-    4300002: top1
+    4300002: left
     4300004: right
-    4300006: left
-    4300008: front1
-    4300010: asdad_polySurface27
-    4300012: asdad_polySurface28
+    4300006: front1
+    4300008: asdad_polySurface27
+    4300010: asdad_polySurface28
+    4300012: polySurface45
     4300014: extra_parts_pCube2
     4300016: polySurface43
     4300018: extra_parts_pCube5
     4300020: extra_parts_pCube6
     4300022: extra_parts_pCube7
     4300024: extra_parts_pCube15
-    4300026: polySurface44
     7400000: idle
     7400002: explode
-    7400004: explodedIdle
+    7400004: explodeIdle
     7400006: explodeReverse
     9500000: //RootNode
   materials:
@@ -116,7 +105,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 0
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -126,8 +115,8 @@ ModelImporter:
     - serializedVersion: 16
       name: idle
       takeName: Take 001
-      firstFrame: 70
-      lastFrame: 71
+      firstFrame: 67
+      lastFrame: 68
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -150,17 +139,11 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: group8
+      - path: group9
         weight: 1
-      - path: group8/asdad_POWERTHINGY
+      - path: group9/polySurface46
         weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part167
-        weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part167/transform7
-        weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part170
-        weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part170/transform6
+      - path: group9/polySurface46/transform9
         weight: 1
       - path: Module_RotateGRP
         weight: 1
@@ -190,18 +173,20 @@ ModelImporter:
         weight: 1
       - path: Module_RotateGRP/Explosion/Module/right
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/top1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP/polySurface45
         weight: 1
       - path: Module_RotateGRP/Explosion/polySurface43
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 70
+      additiveReferencePoseFrame: 65
     - serializedVersion: 16
       name: explode
       takeName: Take 001
       firstFrame: 71
-      lastFrame: 105
+      lastFrame: 104
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -224,17 +209,11 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: group8
+      - path: group9
         weight: 1
-      - path: group8/asdad_POWERTHINGY
+      - path: group9/polySurface46
         weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part167
-        weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part167/transform7
-        weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part170
-        weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part170/transform6
+      - path: group9/polySurface46/transform9
         weight: 1
       - path: Module_RotateGRP
         weight: 1
@@ -264,18 +243,20 @@ ModelImporter:
         weight: 1
       - path: Module_RotateGRP/Explosion/Module/right
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/top1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP/polySurface45
         weight: 1
       - path: Module_RotateGRP/Explosion/polySurface43
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 70
+      additiveReferencePoseFrame: 65
     - serializedVersion: 16
-      name: explodedIdle
+      name: explodeIdle
       takeName: Take 001
-      firstFrame: 100
-      lastFrame: 239
+      firstFrame: 105
+      lastFrame: 240
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -298,17 +279,11 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: group8
+      - path: group9
         weight: 1
-      - path: group8/asdad_POWERTHINGY
+      - path: group9/polySurface46
         weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part167
-        weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part167/transform7
-        weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part170
-        weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part170/transform6
+      - path: group9/polySurface46/transform9
         weight: 1
       - path: Module_RotateGRP
         weight: 1
@@ -338,17 +313,19 @@ ModelImporter:
         weight: 1
       - path: Module_RotateGRP/Explosion/Module/right
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/top1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP/polySurface45
         weight: 1
       - path: Module_RotateGRP/Explosion/polySurface43
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 70
+      additiveReferencePoseFrame: 65
     - serializedVersion: 16
       name: explodeReverse
       takeName: Take 001
-      firstFrame: 240
+      firstFrame: 241
       lastFrame: 275
       wrapMode: 0
       orientationOffsetY: 0
@@ -372,17 +349,11 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: group8
+      - path: group9
         weight: 1
-      - path: group8/asdad_POWERTHINGY
+      - path: group9/polySurface46
         weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part167
-        weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part167/transform7
-        weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part170
-        weight: 1
-      - path: group8/asdad_POWERTHINGY/asdad_2030667_Main_Assembly_FP2_HE_2kW_Simplified_part170/transform6
+      - path: group9/polySurface46/transform9
         weight: 1
       - path: Module_RotateGRP
         weight: 1
@@ -412,13 +383,15 @@ ModelImporter:
         weight: 1
       - path: Module_RotateGRP/Explosion/Module/right
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/top1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP/polySurface45
         weight: 1
       - path: Module_RotateGRP/Explosion/polySurface43
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 70
+      additiveReferencePoseFrame: 65
     isReadable: 1
   meshes:
     lODScreenPercentages: []
