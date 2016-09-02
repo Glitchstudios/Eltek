@@ -14,7 +14,7 @@ public class ModuleMover : MonoBehaviour {
     private ModulePositions _currentPosition;
 
     [SerializeField]
-    private Transform _targetModule;
+    private Transform _moduleToBeMoved;
     [SerializeField]
     private Transform _slot;
     [SerializeField]
@@ -23,6 +23,8 @@ public class ModuleMover : MonoBehaviour {
     private float _distanceThreshold;
     [SerializeField]
     private float _movementSpeed;
+    [SerializeField]
+    private bool _shouldLookAtTargetPoint = true;
 
     private Transform _lastPoint;
 
@@ -38,12 +40,13 @@ public class ModuleMover : MonoBehaviour {
             Debug.LogError("Target waypoints must be attached");
             return;
         }
-        if (_targetModule == null || _slot == null)
+        if (_moduleToBeMoved == null || _slot == null)
         {
             Debug.LogError("TargetModule or Slot is not assigned");
             return;
         }
         SetupForJourneyToTheDisplayPosition();
+        ChangeMovementStateOfModule(false);
         _lastPoint = _targetPoints[_targetPoints.Length - 1];
         _currentPosition = ModulePositions.InsideIdle;
     }
@@ -57,9 +60,6 @@ public class ModuleMover : MonoBehaviour {
     {
         _reachedPoints = 0;
         _nextTarget = _targetPoints[_reachedPoints].position;
-        
-        ChangeMovementStateOfModule(true);
-        
     }
 
     public void StartGoingToDisplayPosition()
@@ -69,7 +69,9 @@ public class ModuleMover : MonoBehaviour {
             _targetPoints = ReverseArrayReplaceLastOne<Transform>(_targetPoints, _lastPoint);
         }
         SetupForJourneyToTheDisplayPosition();
+        ChangeMovementStateOfModule(true);
         _currentPosition = ModulePositions.GoingToDisplayPosition;
+        
     }
 
     public void StartGoingToSystem()
@@ -79,6 +81,7 @@ public class ModuleMover : MonoBehaviour {
         _nextTarget = _targetPoints[_reachedPoints].position;
 
         ChangeMovementStateOfModule(true);
+        _currentPosition = ModulePositions.GoingInToSystem;
         //todo
     }
     
@@ -86,7 +89,7 @@ public class ModuleMover : MonoBehaviour {
     {
         int count = arr.Length;
         T[] reverseArray = new T[count];
-        for (int i = count-1; i > 0; i++)
+        for (int i = count-1; i > 0; i--)
         {
             reverseArray[count - i] = arr[i];
         }
@@ -120,7 +123,7 @@ public class ModuleMover : MonoBehaviour {
     {
         if (_shouldMove)
         {
-            float currentDistance = Vector3.Distance(_nextTarget, _targetModule.position);
+            float currentDistance = Vector3.Distance(_nextTarget, _moduleToBeMoved.position);
 
             if (currentDistance < _distanceThreshold) // if arrived
             {
@@ -129,7 +132,11 @@ public class ModuleMover : MonoBehaviour {
                 {
                     //reached final destination
                     _shouldMove = false;
-                    if (_currentPosition == ModulePositions.GoingToDisplayPosition) _currentPosition = ModulePositions.OutsideIdle;
+                    if (_currentPosition == ModulePositions.GoingToDisplayPosition)
+                    {
+                        _currentPosition = ModulePositions.OutsideIdle;
+                        EventManager.TriggerModuleIdle();
+                    }
                     else if (_currentPosition == ModulePositions.GoingInToSystem) _currentPosition = ModulePositions.InsideIdle;
                     else Debug.LogError("wrong position");
                     return;
@@ -140,8 +147,8 @@ public class ModuleMover : MonoBehaviour {
             }
             else
             {
-                _targetModule.LookAt(_nextTarget);
-                _targetModule.Translate(_targetModule.forward * _movementSpeed * Time.deltaTime, Space.World);
+                if(_shouldLookAtTargetPoint) _moduleToBeMoved.LookAt(_nextTarget);
+                _moduleToBeMoved.Translate(_moduleToBeMoved.forward * _movementSpeed * Time.deltaTime, Space.World);
             }
 
         }

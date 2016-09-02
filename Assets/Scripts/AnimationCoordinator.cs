@@ -52,7 +52,7 @@ public class AnimationCoordinator : MonoBehaviour {
                 _currentState = AnimationStates.ModuleOutOfSystem;
                 break;
             case AnimationStates.ModuleOutOfSystem:
-                EventManager.TriggerExplode();
+                EventManager.TriggerExplode();                
                 //StartCoroutine(DelayedExplode(1f));
                 _moduleAnimator.SetTrigger("Explode");
                 _currentState = AnimationStates.ModuleExploded;
