@@ -13,7 +13,7 @@ public class AnimationCoordinator : MonoBehaviour {
     }
 
     [SerializeField]
-    private Animator _systemAnimator;
+    private ModuleMover _moduleMover;
     [SerializeField]
     private Animator _moduleAnimator;
 
@@ -25,25 +25,21 @@ public class AnimationCoordinator : MonoBehaviour {
     void Awake()
     {
         _currentState = AnimationStates.ModuleInSystem;
-        if (_systemAnimator == null || _moduleAnimator == null)
+        if (_moduleMover == null || _moduleAnimator == null || _moduleRotater == null)
         {
-            Debug.LogError("YOU FORGOT TO ASSIGN ANIMATOR");
-        }
-        if(_moduleRotater == null)
-        {
-            Debug.LogError("YOU FORGOT TO ASSIGN A MODULE ROTATER TO THIS SCRIPT");
-        }
+            Debug.LogError("YOU FORGOT TO ASSIGN SOMETHING");
+        }        
     }
 
     void OnEnable()
     {
-        Debug.Log("AnimatorCoordinator Enabled");
+        //Debug.Log("AnimatorCoordinator Enabled");
         EventManager.OnTapped += TapAction;
     }
 
     void OnDisable()
     {
-        Debug.Log("AnimatorCoordinator Disabled");
+        //Debug.Log("AnimatorCoordinator Disabled");
         EventManager.OnTapped -= TapAction;
     }
 
@@ -52,7 +48,7 @@ public class AnimationCoordinator : MonoBehaviour {
         switch (_currentState)
         {
             case AnimationStates.ModuleInSystem:
-                _systemAnimator.SetTrigger("ModuleOut");
+                _moduleMover.StartGoingToDisplayPosition();
                 _currentState = AnimationStates.ModuleOutOfSystem;
                 break;
             case AnimationStates.ModuleOutOfSystem:
@@ -69,7 +65,8 @@ public class AnimationCoordinator : MonoBehaviour {
             case AnimationStates.ModuleShowed:
                 EventManager.TriggerModuleStop();
                 _moduleRotater.StartRotatingTo(Quaternion.identity, 1f); // todo give animation length as reference
-                _systemAnimator.SetTrigger("ModuleIn");
+                //_systemAnimator.SetTrigger("ModuleIn");
+                _moduleMover.StartGoingToSystem();
                 _currentState = AnimationStates.ModuleInSystem;
                 break;
             default:

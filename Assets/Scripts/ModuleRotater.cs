@@ -33,7 +33,7 @@ public class ModuleRotater : MonoBehaviour
     void OnEnable()
     {
         _rotationVector = new Vector3(_rotationAxisX, _rotationAxisY, _rotationAxisZ);
-        Debug.Log("subbed");
+        //Debug.Log("subbed");
         EventManager.OnModuleIdle += StartRotating;
         //EventManager.OnExplode += DoExplodeRotation;
         EventManager.OnModuleStop += StopRotating;
@@ -41,7 +41,7 @@ public class ModuleRotater : MonoBehaviour
 
     void OnDisable()
     {
-        Debug.Log("unsubbed");
+        //Debug.Log("unsubbed");
         EventManager.OnModuleIdle -= StartRotating;
         //EventManager.OnExplode -= DoExplodeRotation;
         EventManager.OnModuleStop -= StopRotating;
