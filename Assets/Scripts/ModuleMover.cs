@@ -32,6 +32,8 @@ public class ModuleMover : MonoBehaviour {
     private Vector3 _nextTarget;
 
     private bool _shouldMove;
+    [SerializeField]
+    private bool goInReverse;
 
 	// Use this for initialization
 	void Start () {
@@ -68,6 +70,7 @@ public class ModuleMover : MonoBehaviour {
         {
             _targetPoints = ReverseArrayReplaceLastOne<Transform>(_targetPoints, _lastPoint);
         }
+        goInReverse = false;
         SetupForJourneyToTheDisplayPosition();
         ChangeMovementStateOfModule(true);
         _currentPosition = ModulePositions.GoingToDisplayPosition;
@@ -80,6 +83,7 @@ public class ModuleMover : MonoBehaviour {
         _reachedPoints = 0;
         _nextTarget = _targetPoints[_reachedPoints].position;
 
+        goInReverse = true;
         ChangeMovementStateOfModule(true);
         _currentPosition = ModulePositions.GoingInToSystem;
         //todo
@@ -135,7 +139,7 @@ public class ModuleMover : MonoBehaviour {
                     if (_currentPosition == ModulePositions.GoingToDisplayPosition)
                     {
                         _currentPosition = ModulePositions.OutsideIdle;
-                        EventManager.TriggerModuleIdle();
+                        EventManager.TriggerModuleArrival();
                     }
                     else if (_currentPosition == ModulePositions.GoingInToSystem) _currentPosition = ModulePositions.InsideIdle;
                     else Debug.LogError("wrong position");
@@ -147,8 +151,17 @@ public class ModuleMover : MonoBehaviour {
             }
             else
             {
-                if(_shouldLookAtTargetPoint) _moduleToBeMoved.LookAt(_nextTarget);
-                _moduleToBeMoved.Translate(_moduleToBeMoved.forward * _movementSpeed * Time.deltaTime, Space.World);
+                if (_shouldLookAtTargetPoint)
+                {
+                    
+                    if (goInReverse)
+                    {
+                        _moduleToBeMoved.LookAt(2 * _moduleToBeMoved.position - _nextTarget);
+                    }
+                    else _moduleToBeMoved.LookAt(_nextTarget);
+
+                }
+                _moduleToBeMoved.Translate(_moduleToBeMoved.forward * _movementSpeed * Time.deltaTime * (goInReverse?-1:1), Space.World);
             }
 
         }

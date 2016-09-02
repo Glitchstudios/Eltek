@@ -10,11 +10,17 @@ public static class EventManager
     public delegate void Explode();
     public static event Explode OnExplode;
 
+    public delegate void PositionReset();
+    public static event PositionReset OnPositionReseted;
+
     public delegate void ModuleGoIdle();
     public static event ModuleGoIdle OnModuleIdle;
 
     public delegate void ModuleStopIdle();
     public static event ModuleStopIdle OnModuleStop;
+
+    public delegate void ModuleArrived();
+    public static event ModuleArrived OnModuleArrive;
 
 
     private static float _lastTimeTapped;
@@ -53,4 +59,20 @@ public static class EventManager
         Debug.Log("ModuleStop triggered");
         if (OnModuleStop != null) OnModuleStop();
     }
+
+    public static void TriggerModuleArrival()
+    {
+        Debug.Log("ModuleArrived triggered");
+
+        if (OnModuleArrive != null) OnModuleArrive();
+    }
+
+    public static void TriggerPositionReseted()
+    {
+        Debug.Log("PositionReseted triggered");
+
+        if (OnPositionReseted != null) OnPositionReseted();
+    }
+
+    
 }

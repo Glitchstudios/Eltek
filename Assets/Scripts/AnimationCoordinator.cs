@@ -35,12 +35,16 @@ public class AnimationCoordinator : MonoBehaviour {
     {
         //Debug.Log("AnimatorCoordinator Enabled");
         EventManager.OnTapped += TapAction;
+        EventManager.OnModuleArrive += WhenModuleArrives;
+        EventManager.OnPositionReseted += OnPositionReseted;
     }
 
     void OnDisable()
     {
         //Debug.Log("AnimatorCoordinator Disabled");
         EventManager.OnTapped -= TapAction;
+        EventManager.OnModuleArrive -= WhenModuleArrives;
+        EventManager.OnPositionReseted -= OnPositionReseted;
     }
 
     private void TapAction()
@@ -49,13 +53,9 @@ public class AnimationCoordinator : MonoBehaviour {
         {
             case AnimationStates.ModuleInSystem:
                 _moduleMover.StartGoingToDisplayPosition();
-                _currentState = AnimationStates.ModuleOutOfSystem;
                 break;
             case AnimationStates.ModuleOutOfSystem:
                 EventManager.TriggerExplode();                
-                //StartCoroutine(DelayedExplode(1f));
-                _moduleAnimator.SetTrigger("Explode");
-                _currentState = AnimationStates.ModuleExploded;
                 break;
             case AnimationStates.ModuleExploded:
                 _moduleAnimator.SetTrigger("ExplodeReverse");
@@ -63,11 +63,8 @@ public class AnimationCoordinator : MonoBehaviour {
                 _currentState = AnimationStates.ModuleShowed;
                 break;
             case AnimationStates.ModuleShowed:
-                EventManager.TriggerModuleStop();
-                _moduleRotater.StartRotatingTo(Quaternion.identity, 1f); // todo give animation length as reference
-                //_systemAnimator.SetTrigger("ModuleIn");
-                _moduleMover.StartGoingToSystem();
-                _currentState = AnimationStates.ModuleInSystem;
+                EventManager.TriggerModuleStop();                
+                
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -75,16 +72,25 @@ public class AnimationCoordinator : MonoBehaviour {
         //Debug.Log(_currentState);
     }
 
-    private IEnumerator DelayedExplode(float t)
+    private void WhenModuleArrives()
     {
-        float timePassed = 0;
-        while(t > timePassed)
-        {
-            timePassed += Time.deltaTime;
-            yield return new WaitForSeconds(0.33f);
-        }
-        Debug.LogWarning("mmm");
-        _moduleAnimator.SetTrigger("Explode");
-        _currentState = AnimationStates.ModuleExploded;
+        _currentState = AnimationStates.ModuleOutOfSystem;
+        EventManager.TriggerModuleIdle();
     }
+
+    private void OnPositionReseted()
+    {
+        if (_currentState == AnimationStates.ModuleOutOfSystem)
+        {
+            _moduleAnimator.SetTrigger("Explode");
+            _currentState = AnimationStates.ModuleExploded;
+        }
+        else if(_currentState == AnimationStates.ModuleShowed)
+        {
+            _moduleMover.StartGoingToSystem();
+            _currentState = AnimationStates.ModuleInSystem;
+        }
+
+    }
+
 }
