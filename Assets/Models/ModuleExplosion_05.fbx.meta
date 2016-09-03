@@ -1,0 +1,437 @@
+fileFormatVersion: 2
+guid: b722070c730b11b4fa4476abde3a5317
+timeCreated: 1472743691
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: asdad_polySurface27
+    100002: asdad_polySurface28
+    100004: bottom
+    100006: Explosion
+    100008: extra_parts_pCube15
+    100010: extra_parts_pCube2
+    100012: extra_parts_pCube5
+    100014: extra_parts_pCube6
+    100016: extra_parts_pCube7
+    100018: front1
+    100020: group9
+    100022: left
+    100024: Module
+    100026: Module_RotateGRP
+    100028: //RootNode
+    100030: polySurface43
+    100032: polySurface45
+    100034: polySurface46
+    100036: right
+    100038: Top_GRP
+    100040: transform9
+    400000: asdad_polySurface27
+    400002: asdad_polySurface28
+    400004: bottom
+    400006: Explosion
+    400008: extra_parts_pCube15
+    400010: extra_parts_pCube2
+    400012: extra_parts_pCube5
+    400014: extra_parts_pCube6
+    400016: extra_parts_pCube7
+    400018: front1
+    400020: group9
+    400022: left
+    400024: Module
+    400026: Module_RotateGRP
+    400028: //RootNode
+    400030: polySurface43
+    400032: polySurface45
+    400034: polySurface46
+    400036: right
+    400038: Top_GRP
+    400040: transform9
+    2300000: asdad_polySurface27
+    2300002: asdad_polySurface28
+    2300004: bottom
+    2300006: extra_parts_pCube15
+    2300008: extra_parts_pCube2
+    2300010: extra_parts_pCube5
+    2300012: extra_parts_pCube6
+    2300014: extra_parts_pCube7
+    2300016: front1
+    2300018: left
+    2300020: polySurface43
+    2300022: polySurface45
+    2300024: right
+    3300000: asdad_polySurface27
+    3300002: asdad_polySurface28
+    3300004: bottom
+    3300006: extra_parts_pCube15
+    3300008: extra_parts_pCube2
+    3300010: extra_parts_pCube5
+    3300012: extra_parts_pCube6
+    3300014: extra_parts_pCube7
+    3300016: front1
+    3300018: left
+    3300020: polySurface43
+    3300022: polySurface45
+    3300024: right
+    4300000: bottom
+    4300002: left
+    4300004: right
+    4300006: front1
+    4300008: asdad_polySurface27
+    4300010: asdad_polySurface28
+    4300012: polySurface45
+    4300014: extra_parts_pCube2
+    4300016: polySurface43
+    4300018: extra_parts_pCube5
+    4300020: extra_parts_pCube6
+    4300022: extra_parts_pCube7
+    4300024: extra_parts_pCube15
+    7400000: idle
+    7400002: explode
+    7400004: explodeIdle
+    7400006: explodeReverse
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: Module_RotateGRP
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 67
+      lastFrame: 68
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group9
+        weight: 1
+      - path: group9/polySurface46
+        weight: 1
+      - path: group9/polySurface46/transform9
+        weight: 1
+      - path: Module_RotateGRP
+        weight: 1
+      - path: Module_RotateGRP/Explosion
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube2
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube5
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube6
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube7
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube15
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/bottom
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/front1
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface27
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface28
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/left
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/right
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP/polySurface45
+        weight: 1
+      - path: Module_RotateGRP/Explosion/polySurface43
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 65
+    - serializedVersion: 16
+      name: explode
+      takeName: Take 001
+      firstFrame: 71
+      lastFrame: 104
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group9
+        weight: 1
+      - path: group9/polySurface46
+        weight: 1
+      - path: group9/polySurface46/transform9
+        weight: 1
+      - path: Module_RotateGRP
+        weight: 1
+      - path: Module_RotateGRP/Explosion
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube2
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube5
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube6
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube7
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube15
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/bottom
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/front1
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface27
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface28
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/left
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/right
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP/polySurface45
+        weight: 1
+      - path: Module_RotateGRP/Explosion/polySurface43
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 65
+    - serializedVersion: 16
+      name: explodeIdle
+      takeName: Take 001
+      firstFrame: 105
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group9
+        weight: 1
+      - path: group9/polySurface46
+        weight: 1
+      - path: group9/polySurface46/transform9
+        weight: 1
+      - path: Module_RotateGRP
+        weight: 1
+      - path: Module_RotateGRP/Explosion
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube2
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube5
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube6
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube7
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube15
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/bottom
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/front1
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface27
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface28
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/left
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/right
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP/polySurface45
+        weight: 1
+      - path: Module_RotateGRP/Explosion/polySurface43
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 65
+    - serializedVersion: 16
+      name: explodeReverse
+      takeName: Take 001
+      firstFrame: 241
+      lastFrame: 275
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group9
+        weight: 1
+      - path: group9/polySurface46
+        weight: 1
+      - path: group9/polySurface46/transform9
+        weight: 1
+      - path: Module_RotateGRP
+        weight: 1
+      - path: Module_RotateGRP/Explosion
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube2
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube5
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube6
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube7
+        weight: 1
+      - path: Module_RotateGRP/Explosion/extra_parts_pCube15
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/bottom
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/front1
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface27
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface28
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/left
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/right
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP
+        weight: 1
+      - path: Module_RotateGRP/Explosion/Module/Top_GRP/polySurface45
+        weight: 1
+      - path: Module_RotateGRP/Explosion/polySurface43
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 65
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 18
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
