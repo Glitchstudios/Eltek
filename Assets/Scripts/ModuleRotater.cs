@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ModuleRotater : MonoBehaviour
 {
-
+    [SerializeField] private ModuleMover _mm;
     [SerializeField]
     private float _rotationSpeed = .5f;
     [SerializeField]
@@ -24,6 +24,7 @@ public class ModuleRotater : MonoBehaviour
 
     private Transform _cachedTransform;
     private Quaternion _initialRotation;
+    private Quaternion _resetToRotation;
 
     void Awake()
     {
@@ -70,7 +71,20 @@ public class ModuleRotater : MonoBehaviour
     private void ResetRotation()
     {
         _shouldRotate = false;
-        StartRotatingTo(_initialRotation);
+        StartRotatingTo(_resetToRotation);
+        
+    }
+
+    public void DetermineResetToRotation(bool hardReset)
+    {
+        if (hardReset)
+        {
+            _resetToRotation = _initialRotation;
+        }
+        else
+        {
+            _resetToRotation = _mm.LastPoint.rotation;
+        }
     }
 
     private IEnumerator RotateThis()
@@ -95,7 +109,7 @@ public class ModuleRotater : MonoBehaviour
     {
         _shouldRotate = false;
         Debug.Log("Doing Explode counter rotation");
-        StartRotatingTo(_initialRotation);
+        StartRotatingTo(_resetToRotation);
     }
 
     public void StartRotatingTo(Quaternion d, float timeItTakes = 1f)
@@ -104,9 +118,8 @@ public class ModuleRotater : MonoBehaviour
     }
 
     private IEnumerator RotateTo(Quaternion d)
-    {        
-        //while (Mathf.Abs(Quaternion.Angle(_cachedTransform.rotation, d)) > 0.002f)
-        while(_cachedTransform.rotation != _initialRotation)
+    {
+        while(_cachedTransform.rotation != d)
         {
             _cachedTransform.rotation = Quaternion.RotateTowards(_cachedTransform.rotation, d, _resetRotationSpeed * Time.deltaTime);
             

@@ -12,23 +12,21 @@ public class AnimationCoordinator : MonoBehaviour {
         ModuleShowed
     }
 
-    [SerializeField]
-    private ModuleMover _moduleMover;
-    [SerializeField]
-    private Animator _moduleAnimator;
-
-    [SerializeField]
-    private ModuleRotater _moduleRotater;
+    [SerializeField] private ModuleMover _moduleMover;
+    [SerializeField] private Animator _moduleAnimator;
+    [SerializeField] private Transform _lightToBeToggled;
+    [SerializeField] private ModuleRotater _moduleRotater;
 
     private AnimationStates _currentState;
 
     void Awake()
     {
         _currentState = AnimationStates.ModuleInSystem;
-        if (_moduleMover == null || _moduleAnimator == null || _moduleRotater == null)
+        if (_moduleMover == null || _moduleAnimator == null || _moduleRotater == null || _lightToBeToggled == null)
         {
             Debug.LogError("YOU FORGOT TO ASSIGN SOMETHING");
-        }        
+        }
+        _lightToBeToggled.gameObject.SetActive(false);
     }
 
     void OnEnable()
@@ -47,15 +45,19 @@ public class AnimationCoordinator : MonoBehaviour {
         EventManager.OnPositionReseted -= OnPositionReseted;
     }
 
+
     private void TapAction()
     {
         switch (_currentState)
         {
             case AnimationStates.ModuleInSystem:
                 _moduleMover.StartGoingToDisplayPosition();
+                _lightToBeToggled.gameObject.SetActive(true);
                 break;
             case AnimationStates.ModuleOutOfSystem:
-                EventManager.TriggerExplode();                
+                
+                _moduleRotater.DetermineResetToRotation(false);
+                EventManager.TriggerExplode();
                 break;
             case AnimationStates.ModuleExploded:
                 _moduleAnimator.SetTrigger("ExplodeReverse");
@@ -63,6 +65,8 @@ public class AnimationCoordinator : MonoBehaviour {
                 _currentState = AnimationStates.ModuleShowed;
                 break;
             case AnimationStates.ModuleShowed:
+                _moduleRotater.DetermineResetToRotation(true);
+                _lightToBeToggled.gameObject.SetActive(false);
                 EventManager.TriggerModuleStop();                
                 
                 break;

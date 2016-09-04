@@ -13,18 +13,13 @@ public class ModuleMover : MonoBehaviour {
 
     private ModulePositions _currentPosition;
 
-    [SerializeField]
-    private Transform _moduleToBeMoved;
-    [SerializeField]
-    private Transform _slot;
-    [SerializeField]
-    private Transform[] _targetPoints;
-    [SerializeField]
-    private float _distanceThreshold;
-    [SerializeField]
-    private float _movementSpeed;
-    [SerializeField]
-    private bool _shouldLookAtTargetPoint = true;
+    [SerializeField] private Transform _moduleToBeMoved;
+
+    [SerializeField] private Transform _slot;
+    [SerializeField] private Transform[] _targetPoints;
+    [SerializeField] private float _distanceThreshold;
+    [SerializeField] private float _movementSpeed;
+    [SerializeField] private bool _shouldLookAtTargetPoint = true;
 
 
     [SerializeField] private float _resetRotationSpeed = 100f;
@@ -37,6 +32,14 @@ public class ModuleMover : MonoBehaviour {
     private bool _shouldMove;
     [SerializeField]
     private bool goInReverse;
+
+    public Transform LastPoint
+    {
+        get
+        {
+            return _lastPoint;
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -177,6 +180,7 @@ public class ModuleMover : MonoBehaviour {
     {
         while (_moduleToBeMoved.rotation != _lastPoint.rotation)
         {
+            Debug.Log("rotating");
             _moduleToBeMoved.rotation = Quaternion.RotateTowards(_moduleToBeMoved.rotation, _lastPoint.rotation, _resetRotationSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
