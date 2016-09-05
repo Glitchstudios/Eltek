@@ -190,6 +190,7 @@ public class ModuleMover : MonoBehaviour
         while (_moduleToBeMoved.rotation != _lastPoint.rotation)
         {
             Debug.Log("rotating");
+            //_moduleToBeMoved.Rotate(_rotationVector, _resetRotationSpeed * (_turnRight ? 1f : -1f) * Time.deltaTime);
             _moduleToBeMoved.rotation = Quaternion.RotateTowards(_moduleToBeMoved.rotation, _lastPoint.rotation, _resetRotationSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }

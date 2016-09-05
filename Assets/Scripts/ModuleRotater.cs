@@ -18,6 +18,8 @@ public class ModuleRotater : MonoBehaviour
 
     [SerializeField]
     private float _resetRotationSpeed = 100f;
+    [SerializeField]
+    private readonly float _anglePrecision = 1.5f;
 
     private Vector3 _rotationVector;
 
@@ -120,10 +122,13 @@ public class ModuleRotater : MonoBehaviour
 
     private IEnumerator RotateTo(Quaternion d)
     {
-        while (_cachedTransform.rotation != d)
+        float angle = Quaternion.Angle(_cachedTransform.rotation, d);
+        while ( angle > _anglePrecision)
         {
-            _cachedTransform.rotation = Quaternion.RotateTowards(_cachedTransform.rotation, d, _resetRotationSpeed * Time.deltaTime);
-
+            //Debug.Log(angle);
+            //_cachedTransform.rotation = Quaternion.RotateTowards(_cachedTransform.rotation, d, _resetRotationSpeed * Time.deltaTime);
+            _cachedTransform.Rotate(_rotationVector, _resetRotationSpeed * (_turnRight ? 1f : -1f) * Time.deltaTime);
+            angle = Quaternion.Angle(_cachedTransform.rotation, d);
             yield return new WaitForEndOfFrame();
         }
         _shouldRotate = false;
