@@ -16,10 +16,8 @@ public class ModuleRotater : MonoBehaviour
     [SerializeField]
     private float _rotationAxisZ = 0f;
 
-    [SerializeField]
-    private float _resetRotationSpeed = 100f;
-    [SerializeField]
-    private readonly float _anglePrecision = 1.5f;
+    [SerializeField] private float _resetRotationSpeed = 100f;
+    [SerializeField] private float _anglePrecision = 1.5f;
 
     private Vector3 _rotationVector;
 

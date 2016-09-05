@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b722070c730b11b4fa4476abde3a5317
-timeCreated: 1472743691
+guid: 82132d6046aecb94e8736c4af5d71c2f
+timeCreated: 1473079440
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -15,17 +15,13 @@ ModelImporter:
     100014: extra_parts_pCube6
     100016: extra_parts_pCube7
     100018: front1
-    100020: group9
-    100022: left
-    100024: Module
-    100026: Module_RotateGRP
-    100028: //RootNode
-    100030: polySurface43
-    100032: polySurface45
-    100034: polySurface46
-    100036: right
-    100038: Top_GRP
-    100040: transform9
+    100020: left
+    100022: Module
+    100024: polySurface43
+    100026: polySurface45
+    100028: right
+    100030: //RootNode
+    100032: Top_GRP
     400000: asdad_polySurface27
     400002: asdad_polySurface28
     400004: bottom
@@ -36,17 +32,13 @@ ModelImporter:
     400014: extra_parts_pCube6
     400016: extra_parts_pCube7
     400018: front1
-    400020: group9
-    400022: left
-    400024: Module
-    400026: Module_RotateGRP
-    400028: //RootNode
-    400030: polySurface43
-    400032: polySurface45
-    400034: polySurface46
-    400036: right
-    400038: Top_GRP
-    400040: transform9
+    400020: left
+    400022: Module
+    400024: polySurface43
+    400026: polySurface45
+    400028: right
+    400030: //RootNode
+    400032: Top_GRP
     2300000: asdad_polySurface27
     2300002: asdad_polySurface28
     2300004: bottom
@@ -100,12 +92,12 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: Module_RotateGRP
+    motionNodeName: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 0
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -139,45 +131,37 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: group9
+      - path: Explosion
         weight: 1
-      - path: group9/polySurface46
+      - path: Explosion/extra_parts_pCube2
         weight: 1
-      - path: group9/polySurface46/transform9
+      - path: Explosion/extra_parts_pCube5
         weight: 1
-      - path: Module_RotateGRP
+      - path: Explosion/extra_parts_pCube6
         weight: 1
-      - path: Module_RotateGRP/Explosion
+      - path: Explosion/extra_parts_pCube7
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube2
+      - path: Explosion/extra_parts_pCube15
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube5
+      - path: Explosion/Module
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube6
+      - path: Explosion/Module/bottom
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube7
+      - path: Explosion/Module/front1
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube15
+      - path: Explosion/Module/front1/asdad_polySurface27
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module
+      - path: Explosion/Module/front1/asdad_polySurface28
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/bottom
+      - path: Explosion/Module/left
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/front1
+      - path: Explosion/Module/right
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface27
+      - path: Explosion/Module/Top_GRP
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface28
+      - path: Explosion/Module/Top_GRP/polySurface45
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/left
-        weight: 1
-      - path: Module_RotateGRP/Explosion/Module/right
-        weight: 1
-      - path: Module_RotateGRP/Explosion/Module/Top_GRP
-        weight: 1
-      - path: Module_RotateGRP/Explosion/Module/Top_GRP/polySurface45
-        weight: 1
-      - path: Module_RotateGRP/Explosion/polySurface43
+      - path: Explosion/polySurface43
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -209,45 +193,37 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: group9
+      - path: Explosion
         weight: 1
-      - path: group9/polySurface46
+      - path: Explosion/extra_parts_pCube2
         weight: 1
-      - path: group9/polySurface46/transform9
+      - path: Explosion/extra_parts_pCube5
         weight: 1
-      - path: Module_RotateGRP
+      - path: Explosion/extra_parts_pCube6
         weight: 1
-      - path: Module_RotateGRP/Explosion
+      - path: Explosion/extra_parts_pCube7
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube2
+      - path: Explosion/extra_parts_pCube15
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube5
+      - path: Explosion/Module
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube6
+      - path: Explosion/Module/bottom
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube7
+      - path: Explosion/Module/front1
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube15
+      - path: Explosion/Module/front1/asdad_polySurface27
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module
+      - path: Explosion/Module/front1/asdad_polySurface28
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/bottom
+      - path: Explosion/Module/left
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/front1
+      - path: Explosion/Module/right
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface27
+      - path: Explosion/Module/Top_GRP
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface28
+      - path: Explosion/Module/Top_GRP/polySurface45
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/left
-        weight: 1
-      - path: Module_RotateGRP/Explosion/Module/right
-        weight: 1
-      - path: Module_RotateGRP/Explosion/Module/Top_GRP
-        weight: 1
-      - path: Module_RotateGRP/Explosion/Module/Top_GRP/polySurface45
-        weight: 1
-      - path: Module_RotateGRP/Explosion/polySurface43
+      - path: Explosion/polySurface43
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -263,7 +239,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -279,45 +255,37 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: group9
+      - path: Explosion
         weight: 1
-      - path: group9/polySurface46
+      - path: Explosion/extra_parts_pCube2
         weight: 1
-      - path: group9/polySurface46/transform9
+      - path: Explosion/extra_parts_pCube5
         weight: 1
-      - path: Module_RotateGRP
+      - path: Explosion/extra_parts_pCube6
         weight: 1
-      - path: Module_RotateGRP/Explosion
+      - path: Explosion/extra_parts_pCube7
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube2
+      - path: Explosion/extra_parts_pCube15
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube5
+      - path: Explosion/Module
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube6
+      - path: Explosion/Module/bottom
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube7
+      - path: Explosion/Module/front1
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube15
+      - path: Explosion/Module/front1/asdad_polySurface27
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module
+      - path: Explosion/Module/front1/asdad_polySurface28
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/bottom
+      - path: Explosion/Module/left
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/front1
+      - path: Explosion/Module/right
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface27
+      - path: Explosion/Module/Top_GRP
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface28
+      - path: Explosion/Module/Top_GRP/polySurface45
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/left
-        weight: 1
-      - path: Module_RotateGRP/Explosion/Module/right
-        weight: 1
-      - path: Module_RotateGRP/Explosion/Module/Top_GRP
-        weight: 1
-      - path: Module_RotateGRP/Explosion/Module/Top_GRP/polySurface45
-        weight: 1
-      - path: Module_RotateGRP/Explosion/polySurface43
+      - path: Explosion/polySurface43
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -349,45 +317,37 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: group9
+      - path: Explosion
         weight: 1
-      - path: group9/polySurface46
+      - path: Explosion/extra_parts_pCube2
         weight: 1
-      - path: group9/polySurface46/transform9
+      - path: Explosion/extra_parts_pCube5
         weight: 1
-      - path: Module_RotateGRP
+      - path: Explosion/extra_parts_pCube6
         weight: 1
-      - path: Module_RotateGRP/Explosion
+      - path: Explosion/extra_parts_pCube7
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube2
+      - path: Explosion/extra_parts_pCube15
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube5
+      - path: Explosion/Module
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube6
+      - path: Explosion/Module/bottom
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube7
+      - path: Explosion/Module/front1
         weight: 1
-      - path: Module_RotateGRP/Explosion/extra_parts_pCube15
+      - path: Explosion/Module/front1/asdad_polySurface27
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module
+      - path: Explosion/Module/front1/asdad_polySurface28
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/bottom
+      - path: Explosion/Module/left
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/front1
+      - path: Explosion/Module/right
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface27
+      - path: Explosion/Module/Top_GRP
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/front1/asdad_polySurface28
+      - path: Explosion/Module/Top_GRP/polySurface45
         weight: 1
-      - path: Module_RotateGRP/Explosion/Module/left
-        weight: 1
-      - path: Module_RotateGRP/Explosion/Module/right
-        weight: 1
-      - path: Module_RotateGRP/Explosion/Module/Top_GRP
-        weight: 1
-      - path: Module_RotateGRP/Explosion/Module/Top_GRP/polySurface45
-        weight: 1
-      - path: Module_RotateGRP/Explosion/polySurface43
+      - path: Explosion/polySurface43
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
