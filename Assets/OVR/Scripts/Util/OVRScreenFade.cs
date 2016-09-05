@@ -21,6 +21,7 @@ limitations under the License.
 
 using UnityEngine;
 using System.Collections; // required for Coroutines
+using UnityEngine.UI;
 
 /// <summary>
 /// Fades the screen from black after a new scene is loaded.
@@ -41,6 +42,10 @@ public class OVRScreenFade : MonoBehaviour
 	private bool isFading = false;
 	private YieldInstruction fadeInstruction = new WaitForEndOfFrame();
 
+    [SerializeField]
+    private Texture _logoTexture;
+    private Material _logoMat;
+
 	/// <summary>
 	/// Initialize.
 	/// </summary>
@@ -48,7 +53,11 @@ public class OVRScreenFade : MonoBehaviour
 	{
 		// create the fade material
 		fadeMaterial = new Material(Shader.Find("Oculus/Unlit Transparent Color"));
-	}
+        if (_logoTexture == null) Debug.LogError("ATTACH LOGO!");
+        _logoMat = new Material(Shader.Find("Oculus/Unlit Transparent Color"));
+        _logoMat.SetTexture("_MainTex", _logoTexture);
+        _logoMat.hideFlags = HideFlags.HideAndDontSave;
+    }
 
 	/// <summary>
 	/// Starts the fade in
@@ -75,7 +84,11 @@ public class OVRScreenFade : MonoBehaviour
 		{
 			Destroy(fadeMaterial);
 		}
-	}
+        if (_logoMat != null)
+        {
+            Destroy(_logoMat);
+        }
+    }
 
 	/// <summary>
 	/// Fades alpha from 1.0 to 0.0
@@ -84,15 +97,21 @@ public class OVRScreenFade : MonoBehaviour
 	{
 		float elapsedTime = 0.0f;
 		fadeMaterial.color = fadeColor;
+        
 		Color color = fadeColor;
 		isFading = true;
-		while (elapsedTime < fadeTime)
+        
+        while (elapsedTime < fadeTime)
 		{
-			yield return fadeInstruction;
+            //Graphics.DrawTexture(new Rect(0, 0, 3000, 3000), _logoTexture, 0, 2, 0, 2, null);
+            //_logoImage.gameObject.SetActive(true);
+            //_logoImage.enabled = true;
+            yield return fadeInstruction;
 			elapsedTime += Time.deltaTime;
 			color.a = 1.0f - Mathf.Clamp01(elapsedTime / fadeTime);
 			fadeMaterial.color = color;
 		}
+        Debug.Log("Fading done");
 		isFading = false;
 	}
 
@@ -103,11 +122,14 @@ public class OVRScreenFade : MonoBehaviour
 	{
 		if (isFading)
 		{
-			fadeMaterial.SetPass(0);
+            fadeMaterial.SetPass(0);
+            //_logoMat.SetPass(0);
 			GL.PushMatrix();
 			GL.LoadOrtho();
-			GL.Color(fadeMaterial.color);
-			GL.Begin(GL.QUADS);
+            
+            GL.Color(fadeMaterial.color);
+            //GL.Color(_logoMat.color);
+            GL.Begin(GL.QUADS);
 			GL.Vertex3(0f, 0f, -12f);
 			GL.Vertex3(0f, 1f, -12f);
 			GL.Vertex3(1f, 1f, -12f);
@@ -115,5 +137,5 @@ public class OVRScreenFade : MonoBehaviour
 			GL.End();
 			GL.PopMatrix();
 		}
-	}
+    }
 }
