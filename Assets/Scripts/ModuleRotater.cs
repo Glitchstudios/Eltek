@@ -3,7 +3,8 @@ using System.Collections;
 
 public class ModuleRotater : MonoBehaviour
 {
-    [SerializeField] private ModuleMover _mm;
+    [SerializeField]
+    private ModuleMover _mm;
     [SerializeField]
     private float _rotationSpeed = .5f;
     [SerializeField]
@@ -72,7 +73,7 @@ public class ModuleRotater : MonoBehaviour
     {
         _shouldRotate = false;
         StartRotatingTo(_resetToRotation);
-        
+
     }
 
     public void DetermineResetToRotation(bool hardReset)
@@ -89,17 +90,17 @@ public class ModuleRotater : MonoBehaviour
 
     private IEnumerator RotateThis()
     {
-        
+
         Debug.Log("Rotating started");
-        while(_shouldRotate)
-        {            
+        while (_shouldRotate)
+        {
             _rotationVector = new Vector3(_rotationAxisX, _rotationAxisY, _rotationAxisZ);
             //todo DO ROTATE LOGIC
             _cachedTransform.Rotate(_rotationVector, _rotationSpeed * (_turnRight ? 1f : -1f));
-            
+
             yield return new WaitForEndOfFrame();
         }
-        
+
         Debug.Log("Rotating stopped");
         yield return new WaitForEndOfFrame();
     }
@@ -119,10 +120,10 @@ public class ModuleRotater : MonoBehaviour
 
     private IEnumerator RotateTo(Quaternion d)
     {
-        while(_cachedTransform.rotation != d)
+        while (_cachedTransform.rotation != d)
         {
             _cachedTransform.rotation = Quaternion.RotateTowards(_cachedTransform.rotation, d, _resetRotationSpeed * Time.deltaTime);
-            
+
             yield return new WaitForEndOfFrame();
         }
         _shouldRotate = false;

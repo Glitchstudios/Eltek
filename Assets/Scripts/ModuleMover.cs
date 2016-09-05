@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ModuleMover : MonoBehaviour {
+public class ModuleMover : MonoBehaviour
+{
 
     private enum ModulePositions
     {
@@ -13,16 +14,23 @@ public class ModuleMover : MonoBehaviour {
 
     private ModulePositions _currentPosition;
 
-    [SerializeField] private Transform _moduleToBeMoved;
+    [SerializeField]
+    private Transform _moduleToBeMoved;
 
-    [SerializeField] private Transform _slot;
-    [SerializeField] private Transform[] _targetPoints;
-    [SerializeField] private float _distanceThreshold;
-    [SerializeField] private float _movementSpeed;
-    [SerializeField] private bool _shouldLookAtTargetPoint = true;
+    [SerializeField]
+    private Transform _slot;
+    [SerializeField]
+    private Transform[] _targetPoints;
+    [SerializeField]
+    private float _distanceThreshold;
+    [SerializeField]
+    private float _movementSpeed;
+    [SerializeField]
+    private bool _shouldLookAtTargetPoint = true;
 
 
-    [SerializeField] private float _resetRotationSpeed = 100f;
+    [SerializeField]
+    private float _resetRotationSpeed = 100f;
 
     private Transform _lastPoint;
 
@@ -41,8 +49,9 @@ public class ModuleMover : MonoBehaviour {
         }
     }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         if (_targetPoints.Length == 0)
         {
             Debug.LogError("Target waypoints must be attached");
@@ -72,7 +81,7 @@ public class ModuleMover : MonoBehaviour {
 
     public void StartGoingToDisplayPosition()
     {
-        if(_targetPoints[_targetPoints.Length-1] == _slot)
+        if (_targetPoints[_targetPoints.Length - 1] == _slot)
         {
             _targetPoints = ReverseArrayReplaceLastOne<Transform>(_targetPoints, _lastPoint);
         }
@@ -80,11 +89,11 @@ public class ModuleMover : MonoBehaviour {
         SetupForJourneyToTheDisplayPosition();
         ChangeMovementStateOfModule(true);
         _currentPosition = ModulePositions.GoingToDisplayPosition;
-        
+
     }
 
     public void StartGoingToSystem()
-    {        
+    {
         _targetPoints = ReverseArrayReplaceLastOne<Transform>(_targetPoints, _slot);
         _reachedPoints = 0;
         _nextTarget = _targetPoints[_reachedPoints].position;
@@ -94,12 +103,12 @@ public class ModuleMover : MonoBehaviour {
         _currentPosition = ModulePositions.GoingInToSystem;
         //todo
     }
-    
+
     private T[] ReverseArrayReplaceLastOne<T>(T[] arr, T lastOne)
     {
         int count = arr.Length;
         T[] reverseArray = new T[count];
-        for (int i = count-1; i > 0; i--)
+        for (int i = count - 1; i > 0; i--)
         {
             reverseArray[count - i] = arr[i];
         }
@@ -126,7 +135,7 @@ public class ModuleMover : MonoBehaviour {
             default:
                 break;
         }
-        
+
     }
 
     private void Move()
@@ -161,7 +170,7 @@ public class ModuleMover : MonoBehaviour {
             {
                 if (_shouldLookAtTargetPoint)
                 {
-                    
+
                     if (goInReverse)
                     {
                         _moduleToBeMoved.LookAt(2 * _moduleToBeMoved.position - _nextTarget);
@@ -169,7 +178,7 @@ public class ModuleMover : MonoBehaviour {
                     else _moduleToBeMoved.LookAt(_nextTarget);
 
                 }
-                _moduleToBeMoved.Translate(_moduleToBeMoved.forward * _movementSpeed * Time.deltaTime * (goInReverse?-1:1), Space.World);
+                _moduleToBeMoved.Translate(_moduleToBeMoved.forward * _movementSpeed * Time.deltaTime * (goInReverse ? -1 : 1), Space.World);
             }
 
         }

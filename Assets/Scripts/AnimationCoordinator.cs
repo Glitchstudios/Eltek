@@ -2,7 +2,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class AnimationCoordinator : MonoBehaviour {
+public class AnimationCoordinator : MonoBehaviour
+{
 
     private enum AnimationStates
     {
@@ -12,10 +13,14 @@ public class AnimationCoordinator : MonoBehaviour {
         ModuleShowed
     }
 
-    [SerializeField] private ModuleMover _moduleMover;
-    [SerializeField] private Animator _moduleAnimator;
-    [SerializeField] private Transform _lightToBeToggled;
-    [SerializeField] private ModuleRotater _moduleRotater;
+    [SerializeField]
+    private ModuleMover _moduleMover;
+    [SerializeField]
+    private Animator _moduleAnimator;
+    [SerializeField]
+    private Transform _lightToBeToggled;
+    [SerializeField]
+    private ModuleRotater _moduleRotater;
 
     private AnimationStates _currentState;
 
@@ -55,7 +60,7 @@ public class AnimationCoordinator : MonoBehaviour {
                 _lightToBeToggled.gameObject.SetActive(true);
                 break;
             case AnimationStates.ModuleOutOfSystem:
-                
+
                 _moduleRotater.DetermineResetToRotation(false);
                 EventManager.TriggerExplode();
                 break;
@@ -67,8 +72,8 @@ public class AnimationCoordinator : MonoBehaviour {
             case AnimationStates.ModuleShowed:
                 _moduleRotater.DetermineResetToRotation(true);
                 _lightToBeToggled.gameObject.SetActive(false);
-                EventManager.TriggerModuleStop();                
-                
+                EventManager.TriggerModuleStop();
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -89,7 +94,7 @@ public class AnimationCoordinator : MonoBehaviour {
             _moduleAnimator.SetTrigger("Explode");
             _currentState = AnimationStates.ModuleExploded;
         }
-        else if(_currentState == AnimationStates.ModuleShowed)
+        else if (_currentState == AnimationStates.ModuleShowed)
         {
             _moduleMover.StartGoingToSystem();
             _currentState = AnimationStates.ModuleInSystem;
