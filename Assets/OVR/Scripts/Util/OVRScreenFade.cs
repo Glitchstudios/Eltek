@@ -32,6 +32,8 @@ public class OVRScreenFade : MonoBehaviour
 	/// How long it takes to fade.
 	/// </summary>
 	public float fadeTime = 2.0f;
+    [SerializeField]
+    private float _waitLogoTime = 4.0f;
 
 	/// <summary>
 	/// The initial screen color.
@@ -41,10 +43,12 @@ public class OVRScreenFade : MonoBehaviour
 	private Material fadeMaterial = null;
 	private bool isFading = false;
 	private YieldInstruction fadeInstruction = new WaitForEndOfFrame();
+    private YieldInstruction waitLogoInstruction;
 
     [SerializeField]
     private Texture _logoTexture;
-    private Material _logoMat;
+
+    private bool _displayedLogo = false;
 
 	/// <summary>
 	/// Initialize.
@@ -53,10 +57,13 @@ public class OVRScreenFade : MonoBehaviour
 	{
 		// create the fade material
 		fadeMaterial = new Material(Shader.Find("Oculus/Unlit Transparent Color"));
-        if (_logoTexture == null) Debug.LogError("ATTACH LOGO!");
-        _logoMat = new Material(Shader.Find("Oculus/Unlit Transparent Color"));
-        _logoMat.SetTexture("_MainTex", _logoTexture);
-        _logoMat.hideFlags = HideFlags.HideAndDontSave;
+        if (_logoTexture == null)
+        {
+            Debug.LogError("ATTACH LOGO!");
+        }
+        //_logoMat = new Material(Shader.Find("Transparent/Diffuse"));
+        
+        waitLogoInstruction = new WaitForSeconds(_waitLogoTime);
     }
 
 	/// <summary>
@@ -84,10 +91,6 @@ public class OVRScreenFade : MonoBehaviour
 		{
 			Destroy(fadeMaterial);
 		}
-        if (_logoMat != null)
-        {
-            Destroy(_logoMat);
-        }
     }
 
 	/// <summary>
@@ -95,47 +98,59 @@ public class OVRScreenFade : MonoBehaviour
 	/// </summary>
 	IEnumerator FadeIn()
 	{
-		float elapsedTime = 0.0f;
-		fadeMaterial.color = fadeColor;
         
-		Color color = fadeColor;
-		isFading = true;
+        yield return waitLogoInstruction;
+        _displayedLogo = true;
+        isFading = true;
+        fadeMaterial.color = fadeColor;
+        Color color = fadeColor;
+        isFading = true;
         
+        //yield return waitLogoInstruction;
+        
+        float elapsedTime = 0.0f;
         while (elapsedTime < fadeTime)
-		{
+        {
             //Graphics.DrawTexture(new Rect(0, 0, 3000, 3000), _logoTexture, 0, 2, 0, 2, null);
             //_logoImage.gameObject.SetActive(true);
             //_logoImage.enabled = true;
             yield return fadeInstruction;
-			elapsedTime += Time.deltaTime;
-			color.a = 1.0f - Mathf.Clamp01(elapsedTime / fadeTime);
-			fadeMaterial.color = color;
-		}
+        	elapsedTime += Time.deltaTime;
+        	color.a = 1.0f - Mathf.Clamp01(elapsedTime / fadeTime);
+        	fadeMaterial.color = color;
+        }
         Debug.Log("Fading done");
-		isFading = false;
-	}
+        isFading = false;
+    }
 
 	/// <summary>
 	/// Renders the fade overlay when attached to a camera object
 	/// </summary>
 	void OnPostRender()
 	{
-		if (isFading)
+        if(!_displayedLogo)
+        {
+            GL.PushMatrix();
+            GL.LoadOrtho();
+            Graphics.DrawTexture(new Rect(0, 0, 1, 1), _logoTexture);
+            GL.End();
+            GL.PopMatrix();
+        }
+		else if (isFading)
 		{
             fadeMaterial.SetPass(0);
-            //_logoMat.SetPass(0);
-			GL.PushMatrix();
-			GL.LoadOrtho();
-            
             GL.Color(fadeMaterial.color);
-            //GL.Color(_logoMat.color);
+            GL.PushMatrix();
+			GL.LoadOrtho();
+
             GL.Begin(GL.QUADS);
-			GL.Vertex3(0f, 0f, -12f);
-			GL.Vertex3(0f, 1f, -12f);
-			GL.Vertex3(1f, 1f, -12f);
-			GL.Vertex3(1f, 0f, -12f);
-			GL.End();
-			GL.PopMatrix();
+            GL.Vertex3(0f, 0f, -12f);
+            GL.Vertex3(0f, 1f, -12f);
+            GL.Vertex3(1f, 1f, -12f);
+            GL.Vertex3(1f, 0f, -12f);
+            GL.End();
+
+            GL.PopMatrix();
 		}
     }
 }
