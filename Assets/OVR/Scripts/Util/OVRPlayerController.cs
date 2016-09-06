@@ -192,17 +192,18 @@ public class OVRPlayerController : MonoBehaviour
 
         if ((Input.GetMouseButtonUp(0) || OVRInput.Get(OVRInput.Button.Any)) && _canTap)
         {
-            if (_startedDoubleTap)
-            {
-                _startedDoubleTap = false;
-                Debug.Log("double tapped");
-                EventManager.TriggerShowDebugInfo();
-            }
-            else
-            {
-                StartCoroutine(HandleTap());
-            }
-
+            //for debug
+            //if (_startedDoubleTap)
+            //{
+            //    _startedDoubleTap = false;
+            //    Debug.Log("double tapped");
+            //    EventManager.TriggerShowDebugInfo();
+            //}
+            //else
+            //{
+            //    StartCoroutine(HandleTap());
+            //}
+            EventManager.TriggerTapAction();
         }
 
 

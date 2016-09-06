@@ -31,7 +31,7 @@ public static class EventManager
 
 
     private static float _lastTimeTapped;
-    private static readonly float _tapBlockInterval = 1.25f;
+    private static readonly float _tapBlockInterval = 1.5f;
 
 
     public static void TriggerTapAction()
