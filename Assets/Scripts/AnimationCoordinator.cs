@@ -20,9 +20,13 @@ public class AnimationCoordinator : MonoBehaviour
     [SerializeField]
     private Animator _uiAnimator;
     [SerializeField]
+    private AudioManager _audioManager;
+    [SerializeField]
     private Transform _lightToBeToggled;
     [SerializeField]
     private ModuleRotater _moduleRotater;
+    
+    
 
     private AnimationStates _currentState;
 
@@ -67,7 +71,9 @@ public class AnimationCoordinator : MonoBehaviour
                 EventManager.TriggerExplode();
                 break;
             case AnimationStates.ModuleExploded:
+                
                 _moduleAnimator.SetTrigger("ExplodeReverse");
+                _audioManager.TwirlAudio();
                 EventManager.TriggerModuleIdle();
                 _currentState = AnimationStates.ModuleShowed;
                 break;
@@ -97,6 +103,7 @@ public class AnimationCoordinator : MonoBehaviour
         {
             
             _moduleAnimator.SetTrigger("Explode");
+            _audioManager.TwirlAudio();
             _currentState = AnimationStates.ModuleExploded;
         }
         else if (_currentState == AnimationStates.ModuleShowed)
