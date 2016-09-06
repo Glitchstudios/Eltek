@@ -121,6 +121,9 @@ public class OVRScreenFade : MonoBehaviour
         }
         Debug.Log("Fading done");
         isFading = false;
+
+        EventManager.TriggerEnableControls();
+        enabled = false;
     }
 
 	/// <summary>

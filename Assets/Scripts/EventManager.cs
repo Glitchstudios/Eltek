@@ -7,6 +7,9 @@ public static class EventManager
     public delegate void TapAction();
     public static event TapAction OnTapped;
 
+    public delegate void EnableControls();
+    public static event EnableControls OnEnableControls;
+
     public delegate void Explode();
     public static event Explode OnExplode;
 
@@ -81,6 +84,11 @@ public static class EventManager
     public static void TriggerShowDebugInfo()
     {
         if (OnShowDebugInfo != null) OnShowDebugInfo();
+    }
+
+    public static void TriggerEnableControls()
+    {
+        if (OnEnableControls != null) OnEnableControls();
     }
     
 }

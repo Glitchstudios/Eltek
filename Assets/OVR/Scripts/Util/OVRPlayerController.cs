@@ -97,6 +97,7 @@ public class OVRPlayerController : MonoBehaviour
 
     [SerializeField] private float _doubleTapInterval = 0.3f;
     private bool _startedDoubleTap = false;
+    private bool _canTap = false;
 
 	void Start()
 	{
@@ -130,6 +131,7 @@ public class OVRPlayerController : MonoBehaviour
 	void OnEnable()
 	{
 		OVRManager.display.RecenteredPose += ResetOrientation;
+        EventManager.OnEnableControls += EnableControls;
 
 		if (CameraRig != null)
 		{
@@ -140,12 +142,18 @@ public class OVRPlayerController : MonoBehaviour
 	void OnDisable()
 	{
 		OVRManager.display.RecenteredPose -= ResetOrientation;
+        EventManager.OnEnableControls -= EnableControls;
 
-		if (CameraRig != null)
+        if (CameraRig != null)
 		{
 			CameraRig.UpdatedAnchors -= UpdateTransform;
 		}
 	}
+
+    private void EnableControls()
+    {
+        _canTap = true;
+    }
 
 	protected virtual void Update()
 	{
@@ -182,7 +190,7 @@ public class OVRPlayerController : MonoBehaviour
 		}
 
 
-        if (Input.GetMouseButtonUp(0)|| OVRInput.Get(OVRInput.Button.Any))
+        if ((Input.GetMouseButtonUp(0) || OVRInput.Get(OVRInput.Button.Any)) && _canTap)
         {
             if (_startedDoubleTap)
             {
@@ -194,7 +202,7 @@ public class OVRPlayerController : MonoBehaviour
             {
                 StartCoroutine(HandleTap());
             }
-            
+
         }
 
 
