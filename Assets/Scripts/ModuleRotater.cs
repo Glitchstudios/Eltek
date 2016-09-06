@@ -56,10 +56,10 @@ public class ModuleRotater : MonoBehaviour
     {
         if (_shouldRotate)
         {
-            Debug.Log("It is already rotating");
+            //Debug.Log("It is already rotating");
             return;
         }
-        Debug.Log("Start Rotation coroutine");
+        //Debug.Log("Start Rotation coroutine");
         _shouldRotate = true;
         StartCoroutine(RotateThis());
     }
@@ -91,7 +91,7 @@ public class ModuleRotater : MonoBehaviour
     private IEnumerator RotateThis()
     {
 
-        Debug.Log("Rotating started");
+        //Debug.Log("Rotating started");
         while (_shouldRotate)
         {
             _rotationVector = new Vector3(_rotationAxisX, _rotationAxisY, _rotationAxisZ);
@@ -101,7 +101,7 @@ public class ModuleRotater : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        Debug.Log("Rotating stopped");
+        //Debug.Log("Rotating stopped");
         yield return new WaitForEndOfFrame();
     }
 
@@ -109,7 +109,7 @@ public class ModuleRotater : MonoBehaviour
     private void DoExplodeRotation()
     {
         _shouldRotate = false;
-        Debug.Log("Doing Explode counter rotation");
+        //Debug.Log("Doing Explode counter rotation");
         StartRotatingTo(_resetToRotation);
     }
 
@@ -131,6 +131,6 @@ public class ModuleRotater : MonoBehaviour
         }
         _shouldRotate = false;
         EventManager.TriggerPositionReseted();
-        Debug.Log("Reached zero");
+        //Debug.Log("Reached zero");
     }
 }

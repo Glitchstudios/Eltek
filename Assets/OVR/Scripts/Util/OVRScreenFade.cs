@@ -34,7 +34,8 @@ public class OVRScreenFade : MonoBehaviour
 	public float fadeTime = 2.0f;
     [SerializeField]
     private float _waitLogoTime = 4.0f;
-
+    [SerializeField]
+    private float _timeControlsLocked = 2f;
 	/// <summary>
 	/// The initial screen color.
 	/// </summary>
@@ -105,15 +106,11 @@ public class OVRScreenFade : MonoBehaviour
         fadeMaterial.color = fadeColor;
         Color color = fadeColor;
         isFading = true;
-        
-        //yield return waitLogoInstruction;
-        
+
+        StartCoroutine(TimedControlUnlock(_timeControlsLocked));
         float elapsedTime = 0.0f;
         while (elapsedTime < fadeTime)
         {
-            //Graphics.DrawTexture(new Rect(0, 0, 3000, 3000), _logoTexture, 0, 2, 0, 2, null);
-            //_logoImage.gameObject.SetActive(true);
-            //_logoImage.enabled = true;
             yield return fadeInstruction;
         	elapsedTime += Time.deltaTime;
         	color.a = 1.0f - Mathf.Clamp01(elapsedTime / fadeTime);
@@ -122,8 +119,15 @@ public class OVRScreenFade : MonoBehaviour
         Debug.Log("Fading done");
         isFading = false;
 
-        EventManager.TriggerEnableControls();
+        
         enabled = false;
+    }
+
+    private IEnumerator TimedControlUnlock(float t)
+    {
+        YieldInstruction yi = new WaitForSeconds(t);
+        yield return yi;
+        EventManager.TriggerEnableControls();
     }
 
 	/// <summary>

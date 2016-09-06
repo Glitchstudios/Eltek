@@ -45,38 +45,38 @@ public static class EventManager
         }
         else
         {
-            Debug.Log("slow down bro, chill");
+            //Debug.Log("slow down bro, chill");
         }
     }
 
     public static void TriggerExplode()
     {
-        Debug.Log("Explode Triggered");
+        //Debug.Log("Explode Triggered");
         if (OnExplode != null) OnExplode();
     }
 
     public static void TriggerModuleIdle()
     {
-        Debug.Log("Idle triggered");
+        //Debug.Log("Idle triggered");
         if (OnModuleIdle != null) OnModuleIdle();
     }
 
     public static void TriggerModuleStop()
     {
-        Debug.Log("ModuleStop triggered");
+        //Debug.Log("ModuleStop triggered");
         if (OnModuleStop != null) OnModuleStop();
     }
 
     public static void TriggerModuleArrival()
     {
-        Debug.Log("ModuleArrived triggered");
+        //Debug.Log("ModuleArrived triggered");
 
         if (OnModuleArrive != null) OnModuleArrive();
     }
 
     public static void TriggerPositionReseted()
     {
-        Debug.Log("PositionReseted triggered");
+        //Debug.Log("PositionReseted triggered");
 
         if (OnPositionReseted != null) OnPositionReseted();
     }

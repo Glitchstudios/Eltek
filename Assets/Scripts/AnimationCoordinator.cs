@@ -18,6 +18,8 @@ public class AnimationCoordinator : MonoBehaviour
     [SerializeField]
     private Animator _moduleAnimator;
     [SerializeField]
+    private Animator _uiAnimator;
+    [SerializeField]
     private Transform _lightToBeToggled;
     [SerializeField]
     private ModuleRotater _moduleRotater;
@@ -70,6 +72,7 @@ public class AnimationCoordinator : MonoBehaviour
                 _currentState = AnimationStates.ModuleShowed;
                 break;
             case AnimationStates.ModuleShowed:
+                _uiAnimator.SetTrigger("closeUI");
                 _moduleRotater.DetermineResetToRotation(true);
                 _lightToBeToggled.gameObject.SetActive(false);
                 EventManager.TriggerModuleStop();
@@ -83,6 +86,7 @@ public class AnimationCoordinator : MonoBehaviour
 
     private void WhenModuleArrives()
     {
+        _uiAnimator.SetTrigger("openUI");
         _currentState = AnimationStates.ModuleOutOfSystem;
         EventManager.TriggerModuleIdle();
     }
@@ -91,11 +95,13 @@ public class AnimationCoordinator : MonoBehaviour
     {
         if (_currentState == AnimationStates.ModuleOutOfSystem)
         {
+            
             _moduleAnimator.SetTrigger("Explode");
             _currentState = AnimationStates.ModuleExploded;
         }
         else if (_currentState == AnimationStates.ModuleShowed)
         {
+            
             _moduleMover.StartGoingToSystem();
             _currentState = AnimationStates.ModuleInSystem;
         }
